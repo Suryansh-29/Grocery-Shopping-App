@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+client/node_modules/
+backend/node_modules/
+
+
+# Environment variables
+.env
+client/.env
+client/.gitignore
+backend/.env
+
+# Logs
+*.log
