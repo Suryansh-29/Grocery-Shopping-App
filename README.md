@@ -38,4 +38,4 @@
 **State Management**:  
 - React Context  
 
-Feel free to customize or expand the README with installation instructions, screenshots, or contributor info.
+
