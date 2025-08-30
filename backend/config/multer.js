@@ -1,8 +1,27 @@
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 import multer from "multer";
-const storage = multer.diskStorage({
-  destination: "uploads",
-  filename: (req, file, cb) => {
-    return cb(null, `${Date.now()}${file.originalname}`);
+import dotenv from "dotenv";
+
+dotenv.config();
+
+// Cloudinary config
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Define storage
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "my_uploads", // Folder name in Cloudinary
+    allowed_formats: ["jpg", "png", "jpeg", "webp"], // Allowed formats
   },
 });
-export const upload = multer({ storage: storage });
+
+// Multer middleware
+const upload = multer({ storage });
+
+export default upload;

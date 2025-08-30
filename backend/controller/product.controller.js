@@ -21,13 +21,15 @@ export const addProduct = async (req, res) => {
       });
     }
 
+    const imageUrls = req.files.map((file) => file.path);
+
     const product = new Product({
       name,
       price,
       offerPrice,
       description,
       category,
-      image,
+      image : imageUrls,
     });
 
     const savedProduct = await product.save();
