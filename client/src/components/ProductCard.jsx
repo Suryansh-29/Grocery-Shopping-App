@@ -1,5 +1,5 @@
 import { assets } from "../assets/assets";
-import { useAppContext } from "../context/appContext";
+import { useAppContext } from "../context/AppContext.jsx";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
