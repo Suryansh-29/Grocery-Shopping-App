@@ -17,7 +17,7 @@ const app = express();
 
 // await connectCloudinary();
 // allow multiple origins
-const allowedOrigins = ["http://localhost:5173" , "https://warm-lollipop-992f71.netlify.app"];
+const allowedOrigins = ["http://localhost:5173", "https://grocery-shopping-app-frontend.onrender.com"];
 //middlewares
 app.use(cors({
   origin: function (origin, callback) {
