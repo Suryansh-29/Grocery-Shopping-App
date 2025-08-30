@@ -80,8 +80,8 @@ export const loginUser = async (req, res) => {
     });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "Strict",
+      secure: process.env.NODE_ENV === "production", // must be true on prod
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // "Strict" can block cross-site
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json({
