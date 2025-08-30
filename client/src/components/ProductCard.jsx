@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       <Link to={`/product/${product._id}`} onClick={() => scrollTo(0, 0)} className="block">
         <div className="w-full h-48 overflow-hidden flex items-center justify-center p-2 group">
           <img
-            src={`http://localhost:5000/images/${product.image[0]}`}
+            src={product.image[0]}
             alt={product.name}
             className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
           />

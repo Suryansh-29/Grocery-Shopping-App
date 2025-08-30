@@ -58,12 +58,12 @@ const SingleProduct = () => {
                 onClick={() => setThumbnail(image)}
                 className={`border max-w-24 rounded overflow-hidden cursor-pointer ${thumbnail === image ? 'border-indigo-500' : 'border-gray-500/30'}`}
               >
-                <img src={`http://localhost:5000/images/${image}`} alt={`Thumbnail ${index + 1}`} />
+                <img src={image} alt={`Thumbnail ${index + 1}`} />
               </div>
             ))}
           </div>
           <div className="border border-gray-500/30 max-w-lg rounded overflow-hidden">
-            <img src={`http://localhost:5000/images/${thumbnail}`} alt="Selected product" />
+            <img src={thumbnail} alt="Selected product" />
           </div>
         </div>
 
