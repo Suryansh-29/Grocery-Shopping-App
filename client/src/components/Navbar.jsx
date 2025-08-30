@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
 import toast from "react-hot-toast";
@@ -118,15 +118,27 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
+          <div>
           <button
             onClick={() => {
               setOpen(false);
               setShowUserLogin(true);
             }}
-            className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
+            className="cursor-pointer mx-2 px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
           >
             Login
           </button>
+
+          <button
+            onClick={() => {
+              navigate("/seller");
+            }}
+            className="cursor-pointer mx-2 px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
+          >
+            Admin Login
+          </button>
+
+          </div>
         )}
       </div>
       <div className="flex items-center gap-6 md:hidden">

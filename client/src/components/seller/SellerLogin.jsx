@@ -29,7 +29,13 @@ const SellerLogin = () => {
   };
   return (
     !isSeller && (
-      <div className="fixed top-0 left-0 bottom-0 right-0 z-30 flex items-center justify-center  bg-black/50 text-gray-600">
+      <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/50 text-gray-600">
+        <button
+          className="cursor-pointer absolute top-6 left-6 px-4 py-2 bg-transparent text-gray-700 border border-gray-700 rounded shadow hover:bg-gray-300 hover:gray-700 transition-all"
+          onClick={() => navigate("/")}
+        >
+          Go Back
+        </button>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 m-auto items-start p-8 py-12 w-80 sm:w-[352px] rounded-lg shadow-xl border border-gray-200 bg-white"

@@ -15,7 +15,7 @@ import { connectCloudinary } from "./config/cloudinary.js";
 
 const app = express();
 
-await connectCloudinary();
+// await connectCloudinary();
 // allow multiple origins
 const allowedOrigins = ["http://localhost:5173"];
 //middlewares
