@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-// seller login :/api/seller/login
+
+// seller login: /api/seller/login
 export const sellerLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -12,8 +13,8 @@ export const sellerLogin = async (req, res) => {
       });
       res.cookie("sellerToken", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "Strict",
+        secure: true, // Always true in a production environment
+        sameSite: "none", // Required for cross-site requests
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
       return res
@@ -30,7 +31,7 @@ export const sellerLogin = async (req, res) => {
   }
 };
 
-// check seller auth  : /api/seller/is-auth
+// check seller auth: /api/seller/is-auth
 export const checkAuth = async (req, res) => {
   try {
     res.status(200).json({
@@ -41,13 +42,15 @@ export const checkAuth = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 // logout seller: /api/seller/logout
 export const sellerLogout = async (req, res) => {
   try {
+    // These attributes must match the ones used when setting the cookie
     res.clearCookie("sellerToken", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "Strict",
+      secure: true,
+      sameSite: "none",
     });
     return res.status(200).json({
       message: "Logged out successfully",
